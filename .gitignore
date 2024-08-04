@@ -1,0 +1,5 @@
+/.idea/workspace.xml
+/target/
+*.iml
+dependency-reduced-pom.xml
+.idea/

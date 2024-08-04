@@ -1,0 +1,5 @@
+name: RMBNametags
+version: '${project.version}'
+main: me.vewa.rmbnametags.RMBNametags
+api-version: '1.21'
+description: A plugin to hide player names and show them on right-click in actionbar

@@ -1,0 +1,6 @@
+# display time in seconds
+display-time: 3
+
+# Change nickname format here
+# Use & for colors and {PLAYER_NAME} variable
+name-format: "&a&l{PLAYER_NAME}"
