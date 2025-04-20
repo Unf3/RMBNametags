@@ -40,6 +40,7 @@ public class RMBNametags extends JavaPlugin implements Listener {
         }
 
         hiddenNamesTeam.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.NEVER);
+        hiddenNamesTeam.setCanSeeFriendlyInvisibles(false);
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             hidePlayerName(player);
