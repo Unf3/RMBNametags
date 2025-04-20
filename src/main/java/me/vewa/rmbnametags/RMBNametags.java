@@ -68,14 +68,20 @@ public class RMBNametags extends JavaPlugin implements Listener {
         hiddenNamesTeam.addEntry(player.getName());
     }
 
-    @EventHandler
-    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
-        if (event.getRightClicked() instanceof Player) {
-            Player clickedPlayer = (Player) event.getRightClicked();
-            Player clickingPlayer = event.getPlayer();
-            showPlayerNameInActionbar(clickingPlayer, clickedPlayer);
-        }
+@EventHandler
+public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+    if (!(event.getRightClicked() instanceof Player)) {
+        return;
     }
+    Player clickedPlayer = (Player) event.getRightClicked();
+    if (clickedPlayer.isInvisible() 
+    ) {
+        return;
+    }
+
+    Player clickingPlayer = event.getPlayer();
+    showPlayerNameInActionbar(clickingPlayer, clickedPlayer);
+}
 
     private void showPlayerNameInActionbar(Player clickingPlayer, Player clickedPlayer) {
         String name = nameFormat.replace("{PLAYER_NAME}", clickedPlayer.getName());
