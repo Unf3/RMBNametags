@@ -30,6 +30,7 @@ public class RMBNametags extends JavaPlugin implements Listener {
 
         new Metrics(this, 22888);
         getServer().getPluginManager().registerEvents(this, this);
+        getCommand("rmbnametags_reload").setExecutor(new ReloadCommand(this));
 
         manager = Bukkit.getScoreboardManager();
         board = manager.getMainScoreboard();
@@ -54,7 +55,8 @@ public class RMBNametags extends JavaPlugin implements Listener {
         }
     }
 
-    private void loadConfig() {
+    public void loadConfig() {
+        reloadConfig();
         FileConfiguration config = getConfig();
         displayTime = config.getInt("display-time", 3);
         nameFormat = ChatColor.translateAlternateColorCodes('&', config.getString("name-format", "&6{PLAYER_NAME}"));
