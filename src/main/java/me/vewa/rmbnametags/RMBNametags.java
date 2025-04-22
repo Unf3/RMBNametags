@@ -42,7 +42,7 @@ public class RMBNametags extends JavaPlugin implements Listener {
         hiddenNamesTeam.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.NEVER);
         hiddenNamesTeam.setCanSeeFriendlyInvisibles(false);
 
-        for (Player player : Bukkit.getOnlinePlayers()) {
+        for (Player player: Bukkit.getOnlinePlayers()) {
             hidePlayerName(player);
         }
     }
@@ -69,20 +69,19 @@ public class RMBNametags extends JavaPlugin implements Listener {
         hiddenNamesTeam.addEntry(player.getName());
     }
 
-@EventHandler
-public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
-    if (!(event.getRightClicked() instanceof Player)) {
-        return;
-    }
-    Player clickedPlayer = (Player) event.getRightClicked();
-    if (clickedPlayer.isInvisible() 
-    ) {
-        return;
-    }
+    @EventHandler
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        if (!(event.getRightClicked() instanceof Player)) {
+            return;
+        }
+        Player clickedPlayer = (Player) event.getRightClicked();
+        if (clickedPlayer.isInvisible()) {
+            return;
+        }
 
-    Player clickingPlayer = event.getPlayer();
-    showPlayerNameInActionbar(clickingPlayer, clickedPlayer);
-}
+        Player clickingPlayer = event.getPlayer();
+        showPlayerNameInActionbar(clickingPlayer, clickedPlayer);
+    }
 
     private void showPlayerNameInActionbar(Player clickingPlayer, Player clickedPlayer) {
         String name = nameFormat.replace("{PLAYER_NAME}", clickedPlayer.getName());
